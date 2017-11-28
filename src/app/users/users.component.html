@@ -8,6 +8,9 @@
         <label for="search">Search</label>
         <input type="text" class="form-control" id="search" name="search" [(ngModel)]="search" placeholder="Input field">
       </div>
+
+      <button type="button" class="btn btn-default" (click)="loadUsers()">Search</button>
+
     </div>
     <div class="col-md-12">
       <div class="table-responsive">
@@ -22,13 +25,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let user of users | filter : 'name' : search">
+            <tr *ngFor="let user of users | paginate: { itemsPerPage: pageSize, currentPage: p, totalItems: total }">
               <td [innerText]="user.id"></td>
               <td [innerText]="user.name"></td>
               <td [innerText]="user.surname"></td>
               <td [innerText]="user.email"></td>
               <td>
-                <a class="btn btn-warning">
+                <a class="btn btn-warning" [routerLink]="['/fulllayout/user',user.id]">
                   <span class="glyphicon glyphicon-pencil"></span>
                 </a>
               </td>
@@ -36,6 +39,7 @@
           </tbody>
         </table>
       </div>
+      <pagination-controls (pageChange)="pageChanged($event)" directionLinks="true"></pagination-controls>
     </div>
   </div>
 </div>

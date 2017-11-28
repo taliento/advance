@@ -8,6 +8,14 @@ import { FullLayoutComponent } from './full-layout/full-layout.component';
 import { LoginComponent } from './login/login.component';
 import { UsersComponent } from './users/users.component';
 import { AppRoutingModule } from './app.routing';
+import { UserDetailComponent } from './user-detail/user-detail.component';
+import { UserService } from '../shared/services/user.service';
+import { HttpClientModule } from '@angular/common/http';
+
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import {ToasterModule, ToasterService} from 'angular2-toaster';
+
+
 
 @NgModule({
   declarations: [
@@ -15,14 +23,18 @@ import { AppRoutingModule } from './app.routing';
     FilterPipe,
     FullLayoutComponent,
     LoginComponent,
-    UsersComponent
+    UsersComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    NgxPaginationModule,
+    ToasterModule
   ],
-  providers: [],
+  providers: [UserService,ToasterService],
   bootstrap: [
     AppComponent
   ]

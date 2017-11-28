@@ -3,6 +3,7 @@ import { FullLayoutComponent } from './full-layout/full-layout.component';
 import { UsersComponent } from './users/users.component';
 import { NgModule, Component } from '@angular/core';
 import { LoginComponent } from './login/login.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 export const routes: Routes = [
   {
@@ -21,6 +22,10 @@ export const routes: Routes = [
       {
         path: "users",
         component: UsersComponent
+      },
+      {
+        path: "user/:id",
+        component: UserDetailComponent
       }
     ]
   }
