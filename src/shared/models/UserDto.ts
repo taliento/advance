@@ -4,6 +4,7 @@ export interface IUserDto extends IEntityBase {
   name : string;
   surname: string;
   email: string;
+  totalCount:number;
 }
 
 export class UserDto extends EntityBase implements IUserDto {
@@ -16,4 +17,5 @@ export class UserDto extends EntityBase implements IUserDto {
   name : string = "";
   surname: string = "";
   email: string = "";
+  totalCount:number;
 }

@@ -1,19 +1,19 @@
 <div class="login-container">
   <div class="login-page">
       <div class="form">
-          <form class="register-form">
-              <input type="text" placeholder="name" />
-              <input type="password" placeholder="password" />
+          <!-- <form class="register-form">
+              <input type="text" placeholder="name" [(ngModle)]="loginData.userName" name="userName"/>
+              <input type="password" placeholder="password" [(ngModle)]="loginData.password" name="password"/>
               <input type="text" placeholder="email address" />
               <button>create</button>
               <p class="message">Already registered?
                   <a (click)="login()">Sign In</a>
               </p>
-          </form>
+          </form> -->
 
           <form class="login-form" >
-              <input type="email" name="usernames" [(ngModel)]="username"  placeholder="username .." required/>
-              <input type="password" name="passwords"  [(ngModel)]="password" required />
+              <input type="email" name="usernames" [(ngModel)]="loginData.userName"  placeholder="username .." required/>
+              <input type="password" name="passwords"  [(ngModel)]="loginData.password" required />
               <button type="submit" (click)="login()">login</button>
               <p class="message">Not registered?
                   <a href="#">Create an account</a>

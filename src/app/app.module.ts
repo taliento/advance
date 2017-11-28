@@ -10,10 +10,16 @@ import { UsersComponent } from './users/users.component';
 import { AppRoutingModule } from './app.routing';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserService } from '../shared/services/user.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import {ToasterModule, ToasterService} from 'angular2-toaster';
+import { AuthService } from '../shared/services/auth.service';
+import { AuthinterceptorService } from '../shared/services/authinterceptor.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ProductsComponent } from './products/products.component';
+import { ProductsService } from '../shared/services/products.service';
+import { AuthguardService } from '../shared/services/authguard.service';
 
 
 
@@ -24,7 +30,8 @@ import {ToasterModule, ToasterService} from 'angular2-toaster';
     FullLayoutComponent,
     LoginComponent,
     UsersComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,9 +39,17 @@ import {ToasterModule, ToasterService} from 'angular2-toaster';
     AppRoutingModule,
     HttpClientModule,
     NgxPaginationModule,
+    BrowserAnimationsModule,
     ToasterModule
   ],
-  providers: [UserService,ToasterService],
+  providers: [UserService,AuthService,ToasterService,ProductsService,AuthguardService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthinterceptorService,
+      multi:true
+    }],
+
+
   bootstrap: [
     AppComponent
   ]

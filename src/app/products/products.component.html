@@ -1,0 +1,48 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Users</h3>
+  </div>
+  <div class="panel-body">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="search">Search</label>
+        <input type="text" class="form-control" id="search" name="search" [(ngModel)]="search" placeholder="Input field">
+      </div>
+
+      <button type="button" class="btn btn-default" (click)="loadProducts()">Search</button>
+
+    </div>
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>NAME</th>
+              <th>TITLE</th>
+              <th>DESCRIZIONE</th>
+              <th>PREZZO</th>
+              <th>IMAGE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products | paginate: { itemsPerPage: pageSize, currentPage: p, totalItems: total }">
+              <td [innerText]="product.id"></td>
+              <td [innerText]="product.name"></td>
+              <td [innerText]="product.title"></td>
+              <td [innerText]="product.description"></td>
+              <td [innerText]="product.partners[0].price"></td>
+              <img [src]="product.partners[0].logo"/>
+              <!-- <td>
+                <a class="btn btn-warning" [routerLink]="['/fulllayout/user',user.id]">
+                  <span class="glyphicon glyphicon-pencil"></span>
+                </a>
+              </td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <pagination-controls (pageChange)="pageChanged($event)" directionLinks="true"></pagination-controls>
+    </div>
+  </div>
+</div>

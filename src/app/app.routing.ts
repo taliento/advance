@@ -4,6 +4,8 @@ import { UsersComponent } from './users/users.component';
 import { NgModule, Component } from '@angular/core';
 import { LoginComponent } from './login/login.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { ProductsComponent } from './products/products.component';
+import { AuthguardService } from '../shared/services/authguard.service';
 
 export const routes: Routes = [
   {
@@ -18,10 +20,15 @@ export const routes: Routes = [
   {
     path: "fulllayout",
     component: FullLayoutComponent,
+    canActivateChild:[AuthguardService],
     children: [
       {
         path: "users",
         component: UsersComponent
+      },
+      {
+        path: "products",
+        component: ProductsComponent
       },
       {
         path: "user/:id",
