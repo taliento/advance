@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { UserDto } from "../../shared/models";
-import { UserService } from '../../shared/services/user.service';
+import { UserDto } from "../shared/models";
+import { UserService } from '../shared/services';
 
 @Component({
   selector: "app-users",
@@ -26,6 +26,13 @@ export class UsersComponent implements OnInit {
 
   loadUsers() {
     this.userService.getAll(this.skip, this.pageSize).then((resp) => {
+      this.users = resp;
+      this.total = this.users[0].count;
+    }).catch();
+  }
+
+  findUsers() {
+    this.userService.find(this.search ,this.skip, this.pageSize).then((resp) => {
       this.users = resp;
       this.total = this.users[0].count;
     }).catch();

@@ -3,23 +3,19 @@ import { FormsModule } from "@angular/forms";
 import { NgModule } from "@angular/core";
 
 import { AppComponent } from "./app.component";
-import { FilterPipe } from '../shared/pipes/filter.pipe';
+import { FilterPipe } from './shared/pipes/filter.pipe';
 import { FullLayoutComponent } from './full-layout/full-layout.component';
 import { LoginComponent } from './login/login.component';
 import { UsersComponent } from './users/users.component';
 import { AppRoutingModule } from './app.routing';
 import { UserDetailComponent } from './user-detail/user-detail.component';
-import { UserService } from '../shared/services/user.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import {ToasterModule, ToasterService} from 'angular2-toaster';
-import { AuthService } from '../shared/services/auth.service';
-import { AuthinterceptorService } from '../shared/services/authinterceptor.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ProductsComponent } from './products/products.component';
-import { ProductsService } from '../shared/services/products.service';
-import { AuthguardService } from '../shared/services/authguard.service';
+import { AuthguardService, ProductsService, AuthService, UserService, AuthinterceptorService } from './shared/services';
 
 
 

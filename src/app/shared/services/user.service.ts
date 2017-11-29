@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserDto } from '../models';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class UserService {
@@ -67,6 +67,10 @@ export class UserService {
 
   }
 
+  public async find(txt: string, skip: number = 0, take: number = 30): Promise<Array<UserDto>> {
+    return this._http.get<Array<UserDto>>(environment.api + `User/Find?skip=${skip}&take=${take}&search=${txt}`).toPromise();
+  }
+
   /**
    *
    *
@@ -107,7 +111,7 @@ export class UserService {
    * @returns {Array<UserDto>}
    * @memberof UserService
    */
-  inser(user:UserDto): Array<UserDto> {
+  insert(user:UserDto): Array<UserDto> {
     this.users.push(user);
     return this.users
   }

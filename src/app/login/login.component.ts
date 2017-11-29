@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../shared/services/auth.service';
-import { LoginDataVM } from '../../shared/models/LoginDataVM';
+import { AuthService } from '../shared/services';
+import { LoginDataVM } from '../shared/models';
 import { ToasterService } from 'angular2-toaster';
 
 @Component({

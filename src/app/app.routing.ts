@@ -5,7 +5,7 @@ import { NgModule, Component } from '@angular/core';
 import { LoginComponent } from './login/login.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { ProductsComponent } from './products/products.component';
-import { AuthguardService } from '../shared/services/authguard.service';
+import { AuthguardService } from './shared/services';
 
 export const routes: Routes = [
   {

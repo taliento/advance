@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UserDto } from '../../shared/models/UserDto';
-import { UserService } from '../../shared/services/user.service';
+import { UserDto } from '../shared/models';
+import { UserService } from '../shared/services';
 import { Router } from '@angular/router';
 import { ToasterService} from 'angular2-toaster';
 
